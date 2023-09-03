@@ -8,7 +8,7 @@ function padWithLeadingZeros(num, totalLength) {
 
 module.exports = async (req, res) => {
   // recieve data from the request body, data = {name, membership, type, membership_number, authorized_name, workers_number, address, governorate, phone, license_number, brand, production_type, cr_files, il_files, ml_files }
-  const { name, membership, type, membership_number, authorized_name, workers_number, address, governorate, phone, license_number, brand, production_type, cr_files, il_files, ml_files } = req.body;
+  const { name, membership, type, membership_number, authorized_name, workers_number, address, governorate, phone, license_number, brand, production_type, status, cr_files, il_files, ml_files } = req.body;
   
   // generate company id "year - month - count of companies"
   const date = new Date();
@@ -34,6 +34,7 @@ module.exports = async (req, res) => {
     license_number,
     brand,
     production_type,
+    status,
     cr_files,
     il_files,
     ml_files
