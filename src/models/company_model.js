@@ -21,14 +21,6 @@ const companySchema = new Schema({
     type: String,
     required: true
   },
-  authorized_name: {
-    type: String,
-    required: true
-  },
-  workers_number: {
-    type: Number,
-    required: true
-  },
   address: {
     type: String,
     required: true
@@ -59,17 +51,17 @@ const companySchema = new Schema({
     default: true
   },
   cr_files: {
-    type: [String],
+    type: [Object],
     required: false,
     default: []
   },
   il_files: {
-    type: [String],
+    type: [Object],
     required: false,
     default: []
   },
   ml_files: {
-    type: [String],
+    type: [Object],
     required: false,
     default: []
   },

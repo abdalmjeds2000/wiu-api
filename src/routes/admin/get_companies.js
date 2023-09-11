@@ -24,7 +24,10 @@ module.exports = async (req, res) => {
   if (sort && order) {
     sortQuery[sort] = order === 'asc' ? 1 : -1;
   }
-  const companies = await CompanyModel.find(query).sort(sortQuery).skip(parseInt(start)).limit(parseInt(length));
+
+  const _skip = parseInt(start);
+  const _limit = parseInt(length) == -1 ? 100000000000 : parseInt(length);
+  const companies = await CompanyModel.find(query).sort(sortQuery).skip(_skip).limit(_limit);
 
   // get all members and workers for each company
   let companiesWrapper = [];
